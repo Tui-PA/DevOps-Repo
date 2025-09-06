@@ -9,8 +9,8 @@ public class PeriodHelper : IPeriodHelper
     {
         return period switch
         {
+            MeteorologiaPeriod.Daily => DateTime.Now.AddDays(-1),
             MeteorologiaPeriod.Weekly => DateTime.Now.AddDays(-7),
-            MeteorologiaPeriod.Monthly => DateTime.Now.AddMonths(-1),
             _ => throw new ArgumentOutOfRangeException(nameof(period), $"Not expected period value: {period}"),
         };
     }

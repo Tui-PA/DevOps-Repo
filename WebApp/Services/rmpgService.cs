@@ -39,7 +39,7 @@ namespace devops_project.Services
         
         public async Task<List<Meteorologia>?> GetMeteorologiaAsync(string maregrafo, MeteorologiaPeriod period)
         {
-            string rmpgEndpointUrl = $"/meteorologia/{maregrafo}?momentoInicial={_periodHelper.GetInitialDate(period):yyyy-MM-dd-HH-mm}&momentoFinal={_periodHelper.GetFinalDate:yyyy-MM-dd-HH-mm}";
+            string rmpgEndpointUrl = $"/meteorologia/{maregrafo}?momentoInicial={_periodHelper.GetInitialDate(period):yyyy-MM-dd-HH-mm}&momentoFinal={_periodHelper.GetFinalDate():yyyy-MM-dd-HH-mm}";
             string uriString = string.Concat(baseUrlApi, rmpgEndpointUrl);
             _logger.LogInformation($"Starting request to RMPG API: {uriString}");
             var rmpgReponse = await _httpClient.GetAsync(uriString);
