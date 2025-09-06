@@ -3,16 +3,16 @@ namespace devops_project.Models;
 public class Meteorologia
 {
     public string? DtHrLeitura { get; set; }
-    public int? PressaoAtm { get; set; }
-    public float? TemperaturaExt { get; set; }
-    public float? UmidadeExt { get; set; }
+    public double? PressaoAtm { get; set; }
+    public double? TemperaturaExt { get; set; }
+    public double? UmidadeExt { get; set; }
     public int? DirecaoVento { get; set; }
-    public float? VelocidadeVento { get; set; }
-    public float? Precipitacao { get; set; }
+    public double? VelocidadeVento { get; set; }
+    public double? Precipitacao { get; set; }
 }
 
 public enum MeteorologiaPeriod
 {
-    Weekly,
-    Monthly
+    Daily,
+    Weekly
 }

@@ -10,6 +10,6 @@ public class Maregrafos
     public double Lat { get; set; }
     public double Lon { get; set; }
     public int? IdGLOSS { get; set; }
-    public int IdUHSLC { get; set; }
-    public int IdPSMSL { get; set; }
+    public int? IdUHSLC { get; set; }
+    public int? IdPSMSL { get; set; }
 }

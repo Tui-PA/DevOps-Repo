@@ -13,7 +13,7 @@ public class MeteorologiaController : ControllerBase
     private readonly ILogger<MeteorologiaController> _logger;
     private readonly IrmpgService _rmpgService;
 
-    public MeteorologiaController(ILogger<MeteorologiaController> logger, rmpgService rmpgService)
+    public MeteorologiaController(ILogger<MeteorologiaController> logger, IrmpgService rmpgService)
     {
         _logger = logger;
         _rmpgService = rmpgService;
@@ -31,11 +31,11 @@ public class MeteorologiaController : ControllerBase
         return Ok(response);
     }
 
-    [HttpGet("metereologia/semana/{maregrafo}")]
-    public async Task<IActionResult> GetLastWeekMetereologyAsync(string maregrafo)
+    [HttpGet("metereologia/dia/{maregrafo}")]
+    public async Task<IActionResult> GetLastDayMetereologyAsync(string maregrafo)
     {
-        _logger.LogInformation($"Starting request: LastWeekMetereology: {maregrafo}");
-        var response = await _rmpgService.GetMeteorologiaAsync(maregrafo, MeteorologiaPeriod.Weekly);
+        _logger.LogInformation($"Starting request: LastDayMetereology: {maregrafo}");
+        var response = await _rmpgService.GetMeteorologiaAsync(maregrafo, MeteorologiaPeriod.Daily);
         if (response == null)
         {
             return NotFound();
@@ -43,11 +43,11 @@ public class MeteorologiaController : ControllerBase
         return Ok(response);
     }
 
-    [HttpGet("metereologia/mes/{maregrafo}")]
-    public async Task<IActionResult> GetLastMonthMetereologyAsync(string maregrafo)
+    [HttpGet("metereologia/semana/{maregrafo}")]
+    public async Task<IActionResult> GetLastWeekMetereologyAsync(string maregrafo)
     {
-        _logger.LogInformation($"Starting request: LastMonthMetereology: {maregrafo}");
-        var response = await _rmpgService.GetMeteorologiaAsync(maregrafo, MeteorologiaPeriod.Monthly);
+        _logger.LogInformation($"Starting request: LastWeekMetereology: {maregrafo}");
+        var response = await _rmpgService.GetMeteorologiaAsync(maregrafo, MeteorologiaPeriod.Weekly);
         if (response == null)
         {
             return NotFound();
