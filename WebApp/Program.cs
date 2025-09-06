@@ -1,3 +1,6 @@
+using devops_project.Interfaces;
+using devops_project.Services;
+using devops_project.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +10,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddTransient<IrmpgService, rmpgService>();
+builder.Services.AddTransient<IPeriodHelper, PeriodHelper>();
 
 var app = builder.Build();
 
