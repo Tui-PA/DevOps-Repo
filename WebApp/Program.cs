@@ -11,8 +11,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddTransient<IrmpgService, rmpgService>();
 builder.Services.AddTransient<IPeriodHelper, PeriodHelper>();
+builder.Services.AddTransient<IrmpgService, rmpgService>();
 
 var app = builder.Build();
 
