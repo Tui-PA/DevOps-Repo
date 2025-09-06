@@ -12,7 +12,7 @@ namespace devops_project.Services
         private readonly string baseUrlApi = "https://servicodados.ibge.gov.br/api/v1/rmpg";
         private IPeriodHelper _periodHelper;
 
-        public rmpgService(ILogger<rmpgService> logger, PeriodHelper periodHelper)
+        public rmpgService(ILogger<rmpgService> logger, IPeriodHelper periodHelper)
         {
             _logger = logger;
             _httpClient = new HttpClient();
